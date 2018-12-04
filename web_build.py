@@ -10,12 +10,11 @@ app = Flask(__name__)
 @app.route("/")
 @app.route("/home")
 def home():
-    return render_template('index.html')
-
-# Returns about.html from templates folder when add /about to the website address
+    return render_template('index.html', title="Home Page")
+    
 @app.route("/about")
 def about():
-    return render_template('about.html')
+    return render_template('about.html', title="About Page")
 
 # allows to run it on local host without exporting FLASK_APP environment vars
 # and refresh without restarting server

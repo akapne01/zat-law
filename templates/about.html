@@ -1,10 +1,8 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>About Page</title>
-  </head>
-  <body>
-    <h1>About Page</h1>
-  </body>
-</html>
+{% extends "layout.html" %}
+{% block content %}
+  <!-- Write the content of ABOUT page here. All html formating is
+  under layout.html file and this file extends it and overrides the
+  content part in the layout file -->
+  <h1>This is About Page</h1>
+
+{% endblock content%}
