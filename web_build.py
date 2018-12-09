@@ -2,7 +2,7 @@
 # then open the the web address given in your browser
 import json, requests, urllib2
 from flask import Flask, render_template
-
+from random import randint
 
 app = Flask(__name__)
 
@@ -11,33 +11,27 @@ url = 'https://api.case.law/v1/cases/'
 law_case = urllib2.urlopen(url)
 wjson = law_case.read()
 wjdata = json.loads(wjson)
+
 # creates variable count that can be passed further to html as a var
-count_var = wjdata['count']
-
-
+# generates random number in interval 0 to 99 and passes it to select the
+# relevant case
+random_case_number = randint(0, 99)
+api_results_var = wjdata['results'][random_case_number]['id']
 
 # Returns index.html when goes to the main page or homepage
 @app.route("/")
 @app.route("/home")
 def home():
     #passes count as variable in index.html
-    return render_template('index.html', title="Home Page", count = count_var)
+    return render_template('index.html', title="Home Page", results = api_results_var)
 
 @app.route("/about")
 def about():
     return render_template('about.html', title="About Page")
 
-@app.route("/api")
-def get_account_info():
-
-    api_url = '{0}account'.format(api_url_base)
-
-    response = requests.get(api_url, headers=headers)
-
-    if response.status_code == 200:
-        return json.loads(response.content.decode('utf-8'))
-    else:
-        return None
+@app.route("/random")
+def random():
+    return render_template('random.html', title="Randomly Generated Case")
 
 # allows to run it on local host without exporting FLASK_APP environment vars
 # and refresh without restarting server
