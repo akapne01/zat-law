@@ -4,9 +4,10 @@
     under layout.html file and this file extends it and overrides the
     content part in the layout file -->
 
-  <h1>This is Home Page</h1>
+  <h1>This is Law Case with ID number {{ id }}</h1>
 
-<!-- prints out variable count which was passed in as a var in python file -->
-{{ results }}
-
+<!-- prints out variables which were passed in as a var in python file -->
+<p>Url to the case: <a href="{{ url}}" target="_blank">{{ url }}</a></p>
+<p>Name of the case: {{ name }}</p>
+<p>Decision date: {{decision_date}}</p>
 {% endblock content%}

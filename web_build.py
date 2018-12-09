@@ -16,14 +16,19 @@ wjdata = json.loads(wjson)
 # generates random number in interval 0 to 99 and passes it to select the
 # relevant case
 random_case_number = randint(0, 99)
-api_results_var = wjdata['results'][random_case_number]['id']
+api_id = wjdata['results'][random_case_number]['id']
+# api_url = wjdata['results'][random_case_number]['url']'['/?full_case=true&format=html']
+api_name = wjdata['results'][random_case_number]['name']
+api_url = 'https://api.case.law/v1/cases/{}/?full_case=true&format=html'.format(api_id)
+api_decision_date = wjdata['results'][random_case_number]['decision_date']
 
 # Returns index.html when goes to the main page or homepage
 @app.route("/")
 @app.route("/home")
 def home():
     #passes count as variable in index.html
-    return render_template('index.html', title="Home Page", results = api_results_var)
+    return render_template('index.html', title="Home Page", id = api_id, url = api_url, name = api_name,
+    decision_date= api_decision_date)
 
 @app.route("/about")
 def about():
