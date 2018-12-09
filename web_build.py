@@ -1,63 +1,27 @@
 # RUN THIS FILE IN TERMINAL USING python and file name to open the local host,
 # then open the the web address given in your browser
-import json, requests
+import json, requests, urllib2
 from flask import Flask, render_template
 
-# api_url_base = 'https://api.case.law/v1/cases/'
 
 app = Flask(__name__)
 
-{
-    "count": 6454632,
-    "next": "https://api.case.law/v1/cases/?cursor=cD0xNjczLTEwLTI4",
-    "previous": null,
-    "results": [
-        {
-            "id": 1021505,
-            "url": "https://api.case.law/v1/cases/1021505/",
-            "name": "William Stone against William Boreman",
-            "name_abbreviation": "Stone v. Boreman",
-            "decision_date": "1658",
-            "docket_number": "",
-            "first_page": "1",
-            "last_page": "5",
-            "citations": [
-                {
-                    "type": "official",
-                    "cite": "1 Md. 1"
-                }
-            ],
-            "volume": {
-                "url": "https://api.case.law/v1/volumes/32044057896128/",
-                "volume_number": "1"
-            },
-            "reporter": {
-                "url": "https://api.case.law/v1/reporters/732/",
-                "full_name": "Maryland reports, being a series of the most important law cases argued and determined in the Provincial Court and Court of Appeals of the then province of Maryland, from the year 1700 [i.e. 1658] down to the [end of 1799]"
-            },
-            "court": {
-                "url": "https://api.case.law/v1/courts/md/",
-                "id": 8823,
-                "slug": "md",
-                "name": "Court of Appeals of Maryland",
-                "name_abbreviation": "Md."
-            },
-            "jurisdiction": {
-                "url": "https://api.case.law/v1/jurisdictions/md/",
-                "id": 50,
-                "slug": "md",
-                "name": "Md.",
-                "name_long": "Maryland",
-                "whitelisted": false
-            }
-        }
-}
+# Links API and reads count from api
+url = 'https://api.case.law/v1/cases/'
+law_case = urllib2.urlopen(url)
+wjson = law_case.read()
+wjdata = json.loads(wjson)
+# creates variable count that can be passed further to html as a var
+count_var = wjdata['count']
+
+
 
 # Returns index.html when goes to the main page or homepage
 @app.route("/")
 @app.route("/home")
 def home():
-    return render_template('index.html', title="Home Page")
+    #passes count as variable in index.html
+    return render_template('index.html', title="Home Page", count = count_var)
 
 @app.route("/about")
 def about():
@@ -74,6 +38,7 @@ def get_account_info():
         return json.loads(response.content.decode('utf-8'))
     else:
         return None
+
 # allows to run it on local host without exporting FLASK_APP environment vars
 # and refresh without restarting server
 if __name__ == '__main__':
