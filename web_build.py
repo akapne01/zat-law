@@ -1,20 +1,27 @@
 # RUN THIS FILE IN TERMINAL USING python and file name to open the local host,
 # then open the the web address given in your browser
-import json, requests, urllib2, os
+import json, requests, urllib2, os, urllib
 from flask import Flask, render_template
 from random import randint
+from collections import OrderedDict
+
+api_key = os.environ["API_KEY"]
 
 app = Flask(__name__)
 
-# api_key = os.environ["API_KEY"]
+#url2 = 'https://api.case.law/v1/cases/12079998/?full_case=true&format=html'
+#response = requests.get(url2, headers=headers)
 
 # Links API and reads count from api
-url = 'https://api.case.law/v1/cases/'
+# url = 'https://api.case.law/v1/cases/'
+url = 'https://api.case.law/v1/cases/?full_case=true&body_format=html'
 # opens case url
 law_case = urllib2.urlopen(url)
 # reads case url
 wjson = law_case.read()
 wjdata = json.loads(wjson)
+
+
 
 # Funtions returning random number between 0 and 99
 def random_number():
@@ -45,7 +52,9 @@ def about():
 
 @app.route("/random")
 def random():
-    return render_template('random.html', title="Randomly Generated Case")
+    return render_template('random.html', title="Randomly Generated Case", page_content=file)
+
+
 
 # allows to run it on local host without exporting FLASK_APP environment vars
 # and refresh without restarting server
