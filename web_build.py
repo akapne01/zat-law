@@ -13,8 +13,7 @@ app = Flask(__name__)
 #response = requests.get(url2, headers=headers)
 
 # Links API and reads count from api
-# url = 'https://api.case.law/v1/cases/'
-url = 'https://api.case.law/v1/cases/?full_case=true&body_format=html'
+url = 'https://api.case.law/v1/cases/'
 # opens case url
 law_case = urllib2.urlopen(url)
 # reads case url
