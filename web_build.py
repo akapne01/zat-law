@@ -5,12 +5,7 @@ from flask import Flask, render_template
 from random import randint
 from collections import OrderedDict
 
-api_key = os.environ["API_KEY"]
-
 app = Flask(__name__)
-
-#url2 = 'https://api.case.law/v1/cases/12079998/?full_case=true&format=html'
-#response = requests.get(url2, headers=headers)
 
 # Links API and reads count from api
 url = 'https://api.case.law/v1/cases/'
