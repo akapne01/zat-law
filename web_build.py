@@ -1,7 +1,7 @@
 # RUN THIS FILE IN TERMINAL USING python and file name to open the local host,
 # then open the the web address given in your browser
-import json, requests, urllib2, os, urllib
-from flask import Flask, render_template
+import json, requests, urllib2, os, urllib 
+from flask import Flask, render_template, url_for
 from random import randint
 from collections import OrderedDict
 
