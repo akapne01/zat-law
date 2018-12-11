@@ -1,1 +1,1 @@
-python web_build.py
+web: python web_build.py
