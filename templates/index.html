@@ -9,6 +9,23 @@
       <p>Decision date: {{decision_date}}</p>
 
  </article>
+
+<script>
+    function newCase(){
+        window.location={{ url_for('random') }};
+    }
+</script>
+<button onclick="newCase();">New Case</button>
+
+ <button onclick="myFunction()">Try it</button>
+
+<script>
+function myFunction() {
+    var btn = document.createElement("BUTTON");
+    btn.appendChild(t);
+    document.body.appendChild(btn);
+}
+</script>
   <!-- Write the content of INDEX page here. All html formating is
     under layout.html file and this file extends it and overrides the
     content part in the layout file -->

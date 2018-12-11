@@ -1,9 +1,34 @@
 {% extends "layout.html" %}
 {% block content %}
-  <!-- Write the content of RANDOM page here. All html formating is
-  under layout.html file and this file extends it and overrides the
-  content part in the layout file -->
-  <h1>This is Random Page</h1>
-{{ page_content }}
+<article class="media content-section">
+      <h1>This is Law Case with ID number {{ id }}</h1>
+
+      <!-- prints out variables which were passed in as a var in python file -->
+      <p>Url to the case: <a href="{{ url }}" target="_blank">{{ url }}</a></p>
+      <p>Name of the case: {{ name }}</p>
+      <p>Decision date: {{decision_date}}</p>
+
+ </article>
+
+<script>
+    function newCase(){
+        window.location='http://www.example.com';
+    }
+</script>
+<button onclick="newCase();">New Case</button>
+
+ <button onclick="myFunction()">Try it</button>
+
+<script>
+function myFunction() {
+    var btn = document.createElement("BUTTON");
+    btn.appendChild(t);
+    document.body.appendChild(btn);
+}
+</script>
+  <!-- Write the content of INDEX page here. All html formating is
+    under layout.html file and this file extends it and overrides the
+    content part in the layout file -->
+
 
 {% endblock content%}

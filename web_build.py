@@ -46,7 +46,9 @@ def about():
 
 @app.route("/random")
 def random():
-    return render_template('random.html', title="Randomly Generated Case", page_content=file)
+    return render_template('random.html', random_case_number = randint(0, 99), id = wjdata['results'][random_case_number]['id'],
+    url = 'https://api.case.law/v1/cases/{}/'.format(api_id), name = wjdata['results'][random_case_number]['name'],
+    decision_date= wjdata['results'][random_case_number]['decision_date'])
 
 
 
