@@ -28,7 +28,7 @@ api_id = wjdata['results'][random_case_number]['id']
 # gets and assigns name of the case to variable
 api_name = wjdata['results'][random_case_number]['name']
 # gets and assigns url of this case to var
-api_url = 'https://api.case.law/v1/cases/{}/?full_case=true&format=html'.format(api_id)
+api_url = 'https://api.case.law/v1/cases/{}/.format(api_id)'
 # gets and assigns decidion date of this case to var
 api_decision_date = wjdata['results'][random_case_number]['decision_date']
 
