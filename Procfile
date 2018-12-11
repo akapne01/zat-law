@@ -1,1 +1,2 @@
-web: gunicorn gettingstarted.wsgi
+web: gunicorn app:zat-law
+release: python web_build.py
