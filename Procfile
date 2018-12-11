@@ -1,2 +1,1 @@
-web: gunicorn app:zat-law
-release: python web_build.py
+web: gunicorn web_build.py
