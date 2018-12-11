@@ -1,2 +1,1 @@
-web: gunicorn start.wsgi --log-file -
-web: python web_build.py
+web: gunicorn web_build:app
