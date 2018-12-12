@@ -41,6 +41,10 @@ p {
   
 }
 
+.btn .btn-primary {
+  background-color: #f8f9fa;
+}
+
 
 /* Global Styles */
 
