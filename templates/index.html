@@ -7,10 +7,28 @@
       <!-- prints out variables which were passed in as a var in python file -->
       <p>Url to the case: <a href="{{ url }}" target="_blank">{{ url }}</a></p>
       <p>Name of the case: {{ name }}</p>
-      <p>Decision date: {{decision_date}}</p>    
-  </article>
+      <p>Decision date: {{decision_date}}</p>
 
-  <input class="btn btn-primary" type="reset" value="New Case">
+ </article>
+<div class="search">
+  <p></p>
+  <p style="margin-top:100px">Look for the case by ID number (opens the case with relevant ID in a new window):</p>
+
+  <form id="frm1" action="/action_page.php">
+    <input id="caseID" type="text" name="Case ID number"><br>
+    <input type="button" onclick=newCase() value="Enter">
+  </form>
+
+ <script>
+     function newCase(){
+       var input = document.getElementById("caseID").value;
+       var url = "https://api.case.law/v1/cases/" + input
+       window.open(url, '_blank');
+     }
+ </script>
+</div>
+
+
   <!-- Write the content of INDEX page here. All html formating is
     under layout.html file and this file extends it and overrides the
     content part in the layout file -->

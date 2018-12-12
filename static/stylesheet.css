@@ -17,29 +17,27 @@ h1 {
   color: blanchedalmond;
   font-family: 'Montserrat', sans-serif;
   font-size: 24px;
-  
+
 }
 
 p {
   color: blanchedalmond;
   font-family: 'Montserrat', sans-serif;
   font-size: 18px;
-  
+
 }
 
 .display-4 {
   color:#212529;
   font-family: 'Montserrat', sans-serif;
   font-size: 24px;
-  
+
 }
 
 .lead {
   color:#212529;
   font-family: 'Montserrat', sans-serif;
   font-size: 18px;
-  
-}
 
 .btn .btn-primary {
   background-color: #f8f9fa;
@@ -118,7 +116,7 @@ p {
 
   .jumbotron p {
     text-align: center;
-  
+
   }
 
 /* Buttons */
@@ -144,7 +142,7 @@ p {
     width: 10px;
     height: 40px;
   } */
-  
+
 
 /* Images */
 /* Interaction

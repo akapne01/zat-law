@@ -9,6 +9,8 @@
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='stylesheet.css') }}">
       <!-- uses title passed in as variable in python file -->
 
+  <link rel="icon" type="image/png" sizes="16x16" href="static/images/favicon.ico">
+
       {% if title %}
         <title>ZAT LAW - {{ title }}</title>
       {% else %}
@@ -18,17 +20,17 @@
   <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
-          <a class="navbar-brand" href="index.html"><img src="static/images/zat-logo.png" alt='zat logo.'/></a>
+          <a class="navbar-brand" href="{{ url_for('home') }}"><img src="static/images/zat-logo.png" alt='zat logo.'/></a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
             <ul class="navbar-nav">
               <li class="nav-item">
-                <a class="nav-link" href="#cases">Search Cases</a>
+                <a class="nav-link" href="{{ url_for('home') }}">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="rules.html">Rules</a>
+                <a class="nav-link" href="{{ url_for('about') }}">About Us</a>
               </li>
             </ul>
           </div>
@@ -42,9 +44,9 @@
             <p class="lead">Search out law case database.</p>
           </div>
         </div>
-      </header>  
+      </header>
     <!-- Overide content section with what is unique to that page -->
-    
+
     <main class="container" id="cases">
       <div class="row">
         <div class="col-12" id="content">
