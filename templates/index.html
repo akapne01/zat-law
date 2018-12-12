@@ -1,16 +1,7 @@
 {% extends "layout.html" %}
 {% block content %}
-<!-- Original article for when we have the api working<article class="media content-section">
-      <div class="media-body">
-        <div class="article-metadata">
-          <a class="mr-2" href="#">{{ post.author }}</a>
-          <small class="text-muted">{{ post.date_posted }}</small>
-        </div>
-        <h2><a class="article-title" href="#">{{ post.title }}</a></h2>
-        <p class="article-content">{{ post.content }}</p>
-      </div>
-    </article> -->
-  <article class="media content-section">
+
+  <article >
       <h1>This is Law Case with ID number {{ id }}</h1>
 
       <!-- prints out variables which were passed in as a var in python file -->
@@ -18,6 +9,8 @@
       <p>Name of the case: {{ name }}</p>
       <p>Decision date: {{decision_date}}</p>    
   </article>
+
+  <input class="btn btn-primary" type="reset" value="New Case">
   <!-- Write the content of INDEX page here. All html formating is
     under layout.html file and this file extends it and overrides the
     content part in the layout file -->
