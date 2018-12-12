@@ -25,10 +25,17 @@ random_case_number = random_number()
 api_id = wjdata['results'][random_case_number]['id']
 # gets and assigns name of the case to variable
 api_name = wjdata['results'][random_case_number]['name']
+# gets and assigns volume of the case to variable
+api_volume = wjdata['results'][random_case_number]['volume']['url']
+# gets and assigns court of the case to variable
+api_court = wjdata['results'][random_case_number]['court']['url']
+# gets and assigns jurisdiction of the case to variable
+api_jurisdiction = wjdata['results'][random_case_number]['jurisdiction']['url']
 # gets and assigns url of this case to var
 api_url = 'https://api.case.law/v1/cases/{}/'.format(api_id)
 # gets and assigns decidion date of this case to var
 api_decision_date = wjdata['results'][random_case_number]['decision_date']
+
 
 # Returns index.html when goes to the main page or homepage
 @app.route("/")
@@ -36,7 +43,7 @@ api_decision_date = wjdata['results'][random_case_number]['decision_date']
 def home():
     # passes variables got on this file to be used in index.html
     return render_template('index.html', title="Home Page", id = api_id, url = api_url, name = api_name,
-    decision_date= api_decision_date)
+    decision_date= api_decision_date, volume = api_volume, court = api_court, jurisdiction = api_jurisdiction)
 
 @app.route("/about")
 def about():
