@@ -15,8 +15,6 @@ law_case = urllib2.urlopen(url)
 wjson = law_case.read()
 wjdata = json.loads(wjson)
 
-
-
 # Funtions returning random number between 0 and 99
 def random_number():
     return randint(0, 99)
