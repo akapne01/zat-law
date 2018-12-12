@@ -11,15 +11,15 @@
  </article>
 <div class="search">
   <p></p>
-  <p style="margin-top:100px">Look for the case by ID number (opens the case with relevant ID in new window):</p>
+  <p style="margin-top:100px">Look for the case by ID number (opens the case with relevant ID in a new window):</p>
 
   <form id="frm1" action="/action_page.php">
     <input id="caseID" type="text" name="Case ID number"><br>
-    <input type="button" onclick=newCase(name) value="Enter">
+    <input type="button" onclick=newCase() value="Enter">
   </form>
 
  <script>
-     function newCase(number){
+     function newCase(){
        var input = document.getElementById("caseID").value;
        var url = "https://api.case.law/v1/cases/" + input
        window.open(url, '_blank');
